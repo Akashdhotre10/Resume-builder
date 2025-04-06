@@ -30,7 +30,7 @@ A web application that allows users to create professional resumes using customi
 Here are some screenshots of the application in action:
 
 ### 🔹 Home Page
-![Home Page](images/resumebuilder.png)
+![Home Page](images/resume%20builder.png)
 
 ### 🔹 resume templates
 ![Resume Builder](images/resume templates.png)
