@@ -33,16 +33,16 @@ Here are some screenshots of the application in action:
 ![Home Page](images/resume%20builder.png)
 
 ### 🔹 resume templates
-![Resume Builder](images/resume templates.png)
+![Resume Builder](images/resume%20templates.png)
 
 ### 🔹 Job Listings (User View)
-![Jobs Page](images/job posting.png)
+![Jobs Page](images/job%20postings.png)
 
 ### 🔹 Post a Job (Recruiter View)
-![Post Job](images/post a job.png)
+![Post Job](images/post%20a%20job.png)
 
-### 🔹 View Candidates (Recruiter Panel)
-![Candidates](images/screenshot5.png)
+### 🔹 recruiters dashboard (Recruiter Panel)
+![Candidates](images/recruiter%20dashboard.png)
 
 ---
 
