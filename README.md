@@ -30,7 +30,7 @@ A web application that allows users to create professional resumes using customi
 Here are some screenshots of the application in action:
 
 ### 🔹 Home Page
-![Home Page](images/home page.png)
+![Home Page](images/resume builder.png)
 
 ### 🔹 resume templates
 ![Resume Builder](images/resume templates.png)
@@ -43,8 +43,6 @@ Here are some screenshots of the application in action:
 
 ### 🔹 View Candidates (Recruiter Panel)
 ![Candidates](images/screenshot5.png)
-
-> 📁 Make sure to place these images inside a folder named `images` in your repository.
 
 ---
 
