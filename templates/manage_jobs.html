@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Jobs</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding: 2rem;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #e94560;
+            margin-bottom: 1rem;
+        }
+        .flash-message {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .flash-message.success {
+            background-color: #4caf50;
+        }
+        .flash-message.error {
+            background-color: #f44336;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        li {
+            background-color: #2a2a44;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 280px;
+            height: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        li strong {
+            font-size: 1.5rem;
+            color: #e94560;
+            margin-bottom: 0.5rem;
+        }
+        li span {
+            font-size: 1rem;
+            color: #ccc;
+        }
+        .job-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .apply-btn {
+            background-color: #e94560;
+            color: white;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .apply-btn:hover {
+            background-color: #ff6b81;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Available Jobs</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if jobs %}
+        <ul>
+            {% for job in jobs %}
+                <li>
+                    <div class="job-details">
+                        <strong>{{ job.title }}</strong>
+                        <span>Location: {{ job.location }}</span>
+                        <span>Salary: ₹{{ job.salary }}</span>
+                    </div>
+                    <button class="apply-btn">Apply Now</button>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No jobs posted yet.</p>
+    {% endif %}
+    <h2></h2>
+
+    {% if role == 'recruiter' %}
+        <p>These are the jobs you have posted:</p>
+    {% elif role == 'user' %}
+        <p>These are available jobs to apply for:</p>
+    {% endif %}
+</body>
+</html>

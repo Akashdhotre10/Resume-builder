@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html class="no-js" style="height: 100%;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recruiter Dashboard</title>
+    <meta name="description" content="AI-Powered Recruitment Platform">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body style="margin: 0; min-height: 100vh; background: linear-gradient(135deg, #0f0f1f 0%, #1a1a2e 100%); font-family: 'Segoe UI', system-ui, sans-serif; color: white;">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  <style>
+  .flash-message.success {
+    background-color: #28a745;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+}
+.flash-message.error {
+    background-color: #dc3545;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+}
+</style>
+    <!-- Header -->
+    <header style="padding: 1rem 2rem; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div class="logo">
+                <h2 style="margin: 0; color: #00ffff; font-size: 1.8rem;">
+                    <i class="fas fa-search"></i> Hey recruiter's
+                </h2>
+            </div>
+            <nav style="display: flex; gap: 2rem;">
+                <a href="#dashboard" style="color: #00ffff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <div class="dropdown" style="position: relative;">
+                    <button style="background: none; border: none; color: #00ffff; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-briefcase"></i> Jobs 
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" style="display: none; position: absolute; background: #1a1a2e; padding: 1rem; border-radius: 8px; min-width: 200px;">
+                        <a href="/post-job" style="display: block; padding: 0.5rem; color: white; text-decoration: none;">Post New Job</a>
+                        <a href="/manage-jobs" style="display: block; padding: 0.5rem; color: white; text-decoration: none;">Manage Jobs</a>
+                    </div>
+                </div>
+                <a href="#candidates" style="color: #00ffff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-users"></i> Candidates
+                </a>
+            </nav>
+            <div class="user-profile" style="display: flex; align-items: center; gap: 1rem;">
+                <i class="fas fa-bell" style="color: #00ffff;"></i>
+                <div class="avatar" style="width: 40px; height: 40px; border-radius: 50%; background: #00ffff; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-user" style="color: #1a1a2e;"></i>
+                </div>
+                <form action="/logout" method="POST">
+                    <button type="submit" style="padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid #00ffff; border-radius: 8px; color: #00ffff; cursor: pointer;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content (unchanged) -->
+    <main style="max-width: 1400px; margin: 2rem auto; padding: 0 2rem;">
+        <!-- Your existing dashboard sections remain unchanged -->
+    </main>
+
+    <!-- Script -->
+    <script>
+        // Dropdown functionality
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', () => {
+                const content = dropdown.querySelector('.dropdown-content');
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown button')) {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+            }
+        }
+
+       
+        
+    </script>
+
+</body>
+</html>

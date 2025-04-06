@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <!-- Google Fonts & Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        /* Background Gradient */
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Glassmorphism Card */
+        .register-container {
+            max-width: 400px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        /* Header */
+        .register-container h2 {
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input Fields */
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border: 1px solid #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Button */
+        .btn-register {
+            width: 100%;
+            background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Bottom Text */
+        .bottom-text {
+            color: #ffffff99;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .bottom-text a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-text a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            text-decoration: underline;
+        }
+
+        /* Alert Message */
+        .alert {
+            background: rgba(255, 193, 7, 0.15);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            color: #fff;
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="register-container">
+    <h2>Registration</h2>
+
+    <!-- Flash Message -->
+    {% if mesage is defined and mesage %}
+        <div class="alert">{{ mesage }}</div>
+    {% endif %}
+
+    <!-- Registration Form -->
+    <form action="{{ url_for('register') }}" method="post">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        
+        <!-- Role Selection Dropdown (Recruiter & User only) -->
+        <select class="form-control" id="role" name="role" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="user">User</option>
+            <option value="recruiter">Recruiter</option>
+        </select>
+
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+        <button type="submit" class="btn-register">Register</button>
+    </form>
+
+    <p class="bottom-text">
+        Already have an account?  
+        <a href="{{url_for('login')}}">Login here</a>
+    </p>
+</div>
+
+</body>
+</html>
