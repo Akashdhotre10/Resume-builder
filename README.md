@@ -30,16 +30,16 @@ A web application that allows users to create professional resumes using customi
 Here are some screenshots of the application in action:
 
 ### 🔹 Home Page
-![Home Page](images/resu.png)
+![Home Page](images/home page.png)
 
-### 🔹 Resume Builder
-![Resume Builder](images/screenshot2.png)
+### 🔹 resume templates
+![Resume Builder](images/resume templates.png)
 
 ### 🔹 Job Listings (User View)
-![Jobs Page](images/screenshot3.png)
+![Jobs Page](images/job posting.png)
 
 ### 🔹 Post a Job (Recruiter View)
-![Post Job](images/screenshot4.png)
+![Post Job](images/post a job.png)
 
 ### 🔹 View Candidates (Recruiter Panel)
 ![Candidates](images/screenshot5.png)
